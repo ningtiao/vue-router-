@@ -252,3 +252,21 @@ new Vue({
 - initEvent():void
 - createRouterMap(): void
 - initComponents(Vue): void
+
+### Vue Router render
+```
+Vue.component('router-link', {
+  props: {
+    to: String
+  },
+  render (h) {
+    return h('a', {
+      attrs: {
+        href: this.to
+      }
+    }, [this.$slots.default])
+  }
+  // template: '<a :href="to"><solt></slot></a>'
+})
+
+```
