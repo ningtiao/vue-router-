@@ -1,4 +1,4 @@
-let _Vue = null
+const _Vue = null
 
 export default class VueRouter {
   static install (Vue) {
