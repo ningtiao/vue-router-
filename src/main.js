@@ -9,9 +9,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-
-let data = {
-  msg: '大白菜',
-  count: 0
-}
