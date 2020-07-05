@@ -103,35 +103,34 @@ export default {
 .container-list {
   width: 800px;
   margin: 20px auto 0 auto;
-}
-.list-item {
-  display: flex;
-  align-items: center;
-  border: 1px solid #409eff;
-  padding: 10px 0;
-  justify-content: space-between;
-  margin-top: 20px;
-  .desc {
-    padding: 0 0 0 20px;
-    text-align: left;
-    width: 420px;
-    color: #409eff;
-  }
-  .age {
-    padding: 0 20px;
-    color: red;
-  }
-  .title {
-    width: 100px;
-    text-align: left;
+  .list-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #409eff;
+    padding: 10px 0;
+    transition: all 0.5s;
+    justify-content: space-between;
+    margin-top: 20px;
+    .desc {
+      padding: 0 0 0 20px;
+      text-align: left;
+      width: 420px;
+      color: #409eff;
+    }
+    .age {
+      padding: 0 20px;
+      color: red;
+    }
+    .title {
+      width: 100px;
+      text-align: left;
+    }
   }
 }
 
-.list-item {
-  transition: all 0.5s;
-  margin-top: 10px;
-}
+// 过渡效果
 /*设置列表transition-group的name为list的入场以及离场动画效果*/
+
 .list-complete-active,
 .list-complete-leave-active {
   opacity: 0;
