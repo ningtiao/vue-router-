@@ -20,7 +20,7 @@
             {{ item.title}}
           </div>
           <div class="desc">
-            {{ item.Description }}
+            {{ item.desc }}
           </div>
           <div class="right-operation">
             <a-button class="ant-btn-syle" type="danger" @click="removeItem(index)">删除</a-button>
@@ -32,8 +32,12 @@
 </template>
 
 <script>
+// import { getUserList } from "@/api/user";
+import axios from 'axios'
 import { Button } from 'ant-design-vue';
 var _ = require('lodash');
+import Mock from 'mockjs'
+
 export default {
   data () {
     return {
@@ -41,27 +45,14 @@ export default {
       loading: true,
       loadingMore: false,
       showLoadingMore: true,
-      list: [
-        {
-          id: 1,
-          title: '大白菜',
-          Description: 'In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.'
-        },
-        {
-          id: 2,
-          title: '大白菜',
-          Description: 'Dn Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.'
-        },
-        {
-          id: 3,
-          title: '大白菜1',
-          Description: 'En Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.'
-        },
-      ]
+      list: []
     }
   },
   components: {
     AButton: Button
+  },
+  created () {
+    this.getUserList()
   },
   methods: {
     removeItem (index) {
@@ -73,11 +64,16 @@ export default {
     randomIndex: function () {
       return Math.floor(Math.random() * this.list.length)
     },
+    getUserList () {
+      axios.get('/user/list/get').then((res) => {
+        this.list = res.data.data.userList
+      })
+    },
     addItem () {
       let item = {
-        id: Math.floor(Math.random() * 1000),
-        title: '大白菜',
-        Description: 'In Poland during World War II, Oskar Schindler gradually becomes concerned for his.'
+        id: Mock.mock('@increment'),
+        title: Mock.mock('@first'),
+        desc: Mock.mock('@cparagraph(1, 3)')
       }
       this.list.push(item)
     },
@@ -114,6 +110,7 @@ export default {
   .desc {
     padding: 0 0 0 20px;
     text-align: left;
+    width: 420px;
     color: #409eff;
   }
   .age {
@@ -121,8 +118,8 @@ export default {
     color: red;
   }
   .title {
-    padding: 0 20px;
-    width: 200px;
+    width: 100px;
+    text-align: left;
   }
 }
 
