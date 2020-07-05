@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 
 let List = []
-const count = 10
+const count = 5
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
