@@ -1,11 +1,11 @@
 import Vue from 'vue'
-// import VueRouter from 'vue-router'
-import VueRouter from '../hashRouter'
+import VueRouter from 'vue-router'
+// import VueRouter from '../hashRouter'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
